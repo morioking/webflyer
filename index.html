@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ベルリン@CLUB MOVE</title>
+    <!-- BootstrapのCSS読み込み -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 自前CSS読み込み -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- BootstrapのJS読み込み -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- フォント読み込み -->
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Ultra" rel="stylesheet">
+    </head>
+    <body onload="init();">
+      <!-- <header style="background-color: #777;" class="container">ヘッダー</header> -->
+      <section class="container">
+        <div class="row">
+            <canvas id="canvas" width="640" height="480"></canvas>
+        </div>
+        <div class="row" align="center">
+            <span class="date">11|17</span>
+        </div>
+        <div class="row" align="center">
+          <div class="col-md-2" >
+            <span class="weekday">Thursday</span>
+          </div>
+          <div class="col-md-8">
+            <span class="club">@CLUB MOVE</span>
+          </div>
+          <div class="col-md-2">
+            <span class="time">21:00-3:00</span>
+          </div>
+        </div>
+        <div class="row" align="center">
+            <span class="fee">Free Entrance</span>
+        </div>
+        <div class="row" align="center">
+            <span class="djay">DJ:</span>
+        </div>       
+        <div class="row" align="center">
+            <div class="col-md-12" >
+              <span class="djay">naotoshi wada</span>
+            </div>
+        </div>
+        <div class="row" align="center">
+          <div class="col-md-12" >
+            <span class="djay">BIG Matsumura</span>
+          </div>
+        </div>
+        <div class="row" align="center">
+          <div class="col-md-12" >
+            <span class="djay">Boiler OYAKATA</span>
+          </div>
+        </div>
+        <div class="row" align="center">
+          <div class="col-md-12" >
+            <span class="djay">Morishita-san</span>
+          </div>
+        </div>
+      </section>
+    <!-- <footer style="background-color: #777;" class="container">フッター</footer> -->
+
+    <script src="https://code.createjs.com/createjs-2015.05.21.min.js"></script>
+    <script type="text/javascript">
+        var stage;
+        var sprites;     // spriteを格納する配列 
+        var stageWidth;
+        var stageHeight;
+        var frameCount;  // frameCountを外部変数に追加
+        // var graphicas, shapi;
+        // var logo
+
+
+        /**
+         * スプライト（円形のオブジェクト）を作成するクラス
+         *
+         * @param Number x 初期位置（x座標）
+         * @param Number y 初期位置（y座標）
+         * @param Number radius 円の半径
+         * @param String color 色
+         * @param Number init_radian 初期角度（弧度法）
+         */
+        function Sprite(x, y, radius, color, init_radian) {
+            this.Shape_constructor();
+            this.initialize(x, y, radius, color, init_radian);
+        };
+        createjs.extend(Sprite, createjs.Shape);
+        createjs.promote(Sprite, 'Shape');
+        // Spriteクラスのコンストラクタ
+        Sprite.prototype.initialize = function(x, y, radius, color, init_radian) {
+            this.graphics.beginFill(color).drawCircle(0, 0, radius);
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.init_radian = init_radian;
+        };
+        /**
+         * スプライトを移動させるメソッド
+         *
+         * @param Number x 移動の中心点（x座標）
+         * @param Number y 移動の中心点（y座標）
+         * @param Number r 移動距離
+         * @param Number theta 移動の角度（弧度法）
+         */
+        Sprite.prototype.move = function(x, y, r, theta) {
+            var radian = (this.init_radian + theta)
+            this.x = x + r * Math.cos(radian);
+            this.y = y + r * Math.sin(radian);
+        };
+
+        /**
+         * 初期化
+         */
+        function init() {
+            // ステージの初期化
+            var canvas = document.getElementById('canvas');
+            stage = new createjs.Stage(canvas);
+
+            // ステージの縦幅、横幅の取得
+            stageWidth = canvas.width;
+            stageHeight = canvas.height;
+
+            // スプライトの初期化（画面の左上にスプライトを設置）
+            var sprite_red  = new Sprite(0, 0, 50, 'red',  degreeToRadian(0));
+            var sprite_blue = new Sprite(0, 0, 50, 'blue', degreeToRadian(180));
+            // logo = new createjs.Bitmap("images/logo.png");
+
+            // スプライトをステージ上に追加
+            // stage.addChild(logo);
+            stage.addChild(sprite_red);
+            stage.addChild(sprite_blue);
+
+            // var g = new createjs.Graphics();
+            // g.beginStroke("white");
+            // g.moveTo(0,10);
+            // g.lineTo(100,10);
+            // g.endStroke();
+            // var gg=new createjs.Shape(g);
+            // stage.addChild(gg);
+
+            // スプライトを配列に格納
+            sprites = new Array();
+            sprites.push(sprite_red);
+            sprites.push(sprite_blue);
+
+            // logo = new createjs.Graphics();
+            //logo.beginLinearGradientFill(["#ffff00", "#00ffff"], [0, 1], 0, 0, 0, 320);
+            // logo.drawRect(0, 10, 200, 320);
+            // logo.beginFill("DarkRed"); // 赤色で描画するように設定
+            // logo.moveTo(0, 0); // (0,0)座標から描き始める
+            // logo.lineTo(100, 0); // (100,0)座標まで辺を描く
+            // logo.lineTo(0, 100); // (0,100)座標まで辺を描く
+            // logo.lineTo(0, 0); // (0,0)座標まで辺を描く
+
+            // shapi = new createjs.Shape(logo);
+            // stage.addChild(shapi);
+
+
+            // フレームカウントを初期化
+            frameCount = 0;
+
+
+            // tickイベント（アニメーション）の設定
+            createjs.Ticker.addEventListener('tick', onTick);
+            var fps = 30;
+            createjs.Ticker.setFPS(fps);
+        }
+
+        /**
+         * 指定した間隔（フレームレート）ごとに呼び出される関数
+         */
+        function onTick() {
+            // スプライトを毎フレーム移動
+            var x = stageWidth / 2;
+            var y = stageHeight / 2;
+            var r = 2 * frameCount;
+            var radian = degreeToRadian(5 * frameCount);
+            var sprite_number = sprites.length;
+            for (var i = 0; i < sprite_number; i++) {
+                var sprite = sprites[i];
+                sprite.move(x, y, r, radian);
+            }
+
+            // logo.rotation += 2;
+            // logo.regX +=1;
+            // logo.visible = true;
+            // if (Math.floor(Math.random()*102)%101==0){
+            //   logo.visible = false;
+            // }
+            // shapi.x += 1;
+            // shapi.y += 1;
+
+            // ステージ上のオブジェクトをcanvasに反映
+            stage.update();
+
+            // フレームカウントを毎フレーム増加
+            frameCount++;
+            if (frameCount == 200){
+              frameCount = 0;
+              // shapi.x = 0;
+              // shapi.y = 0;
+              }
+
+        }
+        
+        /**
+         * 角度を度数法から弧度法に変換する関数
+         *
+         * @param Number degree 角度（度数法）
+         * @return Number radian 角度（弧度法）
+         */
+        function degreeToRadian(degree) {
+            var radian = 2 * Math.PI * degree / 360.0;
+            return radian;
+        }
+    </script>
+<!--     <script src="js/right-height/right-height.js"></script>
+    <script>
+      rightHeight.init();
+    </script> -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-86995742-1', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+</body>
+</html>

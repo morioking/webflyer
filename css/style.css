@@ -1,0 +1,50 @@
+body {
+	background-color: red	;
+
+	}
+
+canvas {
+  background-color: green; 
+  width: 100%;
+  height: auto;
+	}
+
+.date{
+	font-family: 'Ultra', serif;
+	font-size: 72px;
+	font-weight: normal;
+	text-shadow: -1px 1px 0 rgba(255,255,255,1);
+	}
+
+
+.time{
+	font-family: 'Bitter', serif;
+	font-size: 40px;
+}
+
+.weekday{
+	font-family: 'Bitter', serif;
+	font-size: 40px;
+}
+
+.club{
+	font-family: 'Ultra', serif;
+	font-size: 60px;
+	/*font-size: 8vw;*/
+	font-weight: normal;
+	text-shadow: -1px 1px 0 rgba(255,255,255,1);
+	}
+
+.djay{
+	font-family: 'Ultra', serif;
+	/*font-size: 24px;*/
+	font-size: 8vw;
+	font-weight: normal;
+	text-shadow: -1px 1px 0 rgba(255,255,255,1);
+
+	}
+
+.fee{
+	font-family: 'Bitter', serif;
+	font-size: 40px;
+}
