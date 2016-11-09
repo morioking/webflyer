@@ -1,7 +1,7 @@
 # webflyer
 
 ## 目的
-動的フライヤー
+うごくフライヤー
 
 [ベルリン.club](http://xn--wdk8ac7a.club/)
 
@@ -13,9 +13,9 @@
 - 紙や画像のフライヤーよりも、集客できること
 - PC上でフルスクリーン表示できること（VJで使うことを想定）
 - 8時間でコンテンツ作成できること
-- プレビューが表示されること
+- アイキャッチが表示されること
 
-## 使用技術
+## テックノート
 - Bootstrap
 - CreateJS
 - [Google Fonts](https://fonts.google.com/)
@@ -39,3 +39,18 @@
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 ```
+### AWS CLI
+AWS CLI でファイルをアップロードする
+
+[AWS CLI を使用してファイルを Amazon S3 にバックアップする](https://aws.amazon.com/jp/getting-started/tutorials/backup-to-s3-cli/)
+
+
+### OPG画像
+
+OGP画像をog:imageで指定する
+
+http://ogimage.tsmallfield.com/
+
+OGP画像を確認する
+
+http://seo-scene.com/ogp-image/
