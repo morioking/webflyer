@@ -18,9 +18,7 @@
 ## 仕組み
 - Bootstrap
 - CreateJS
+- [Google Fonts](https://fonts.google.com/)
 
 ## リポジトリ
-webflyer
-
-https://github.com/morioking/webflyer.git
-
+[webflyer](https://github.com/morioking/webflyer.git)
