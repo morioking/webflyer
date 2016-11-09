@@ -15,10 +15,14 @@
 - 8時間でコンテンツ作成できること
 - プレビューが表示されること
 
-## 仕組み
+## 使用技術
 - Bootstrap
 - CreateJS
 - [Google Fonts](https://fonts.google.com/)
+- [AWS S3](https://console.aws.amazon.com/s3/home?region=us-west-2#&bucket=xn--wdk8ac7a.club&prefix=)
+  - バケット名は xn--wdk8ac7a.club
+- AWSのDNS
+- Google analytics
 
 ## リポジトリ
 [webflyer](https://github.com/morioking/webflyer.git)
