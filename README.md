@@ -22,3 +22,16 @@
 
 ## リポジトリ
 [webflyer](https://github.com/morioking/webflyer.git)
+
+
+## 開発環境
+
+### gitconfigの設定
+
+~/.gitconfig に以下を書くとgraph表示がラク
+
+```
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+```
