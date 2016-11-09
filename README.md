@@ -25,7 +25,7 @@
 - Google analytics
 
 ## リポジトリ
-[webflyer](https://github.com/morioking/webflyer.git)
+https://github.com/morioking/webflyer.git
 
 
 ## 開発環境
@@ -42,8 +42,15 @@
 ### AWS CLI
 AWS CLI でファイルをアップロードする
 
+#### インストール
+
 [AWS CLI を使用してファイルを Amazon S3 にバックアップする](https://aws.amazon.com/jp/getting-started/tutorials/backup-to-s3-cli/)
 
+#### サンプルコマンド
+
+```
+aws s3 cp index.html s3://xn--wdk8ac7a.club/
+```
 
 ### OPG画像
 
