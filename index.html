@@ -20,7 +20,7 @@
       <!-- <header style="background-color: #777;" class="container">ヘッダー</header> -->
       <section class="container">
         <div class="row">
-            <canvas id="canvas" width="640" height="480"></canvas>
+            <canvas id="canvas" width="640" height="640"></canvas>
         </div>
         <div class="row" align="center">
             <span class="event">ベルリン</span>
@@ -186,7 +186,7 @@
             // スプライトの初期化（画面の左上にスプライトを設置）
             var sprite_red  = new Sprite(0, 0, 50, 'red',  degreeToRadian(0));
             var sprite_blue = new Sprite(0, 0, 50, 'blue', degreeToRadian(180));
-            logo = new DrawLogo(260, 200, 2);
+            logo = new DrawLogo(260, 280, 2);
             // スプライトをステージ上に追加
             stage.addChild(sprite_red);
             stage.addChild(sprite_blue);
