@@ -23,6 +23,9 @@
             <canvas id="canvas" width="640" height="480"></canvas>
         </div>
         <div class="row" align="center">
+            <span class="event">ベルリン</span>
+        </div>
+        <div class="row" align="center">
             <span class="date">11|17</span>
         </div>
         <div class="row" align="center">
@@ -72,9 +75,22 @@
         var stageWidth;
         var stageHeight;
         var frameCount;  // frameCountを外部変数に追加
-        // var graphicas, shapi;
-        // var logo
+        var graphicas, shapi;
+        var logo1
 
+        var x_offset = 260;
+        var y_offset = 200;
+        var gain = 0.8;
+
+        var W0 = 60 * gain;
+        var W1 = 2 * gain;
+        var W2 = 80 * gain;
+        var W3 = 2 * gain;
+        var W4 = 64 * gain;
+        var W5 = 2 * gain;
+
+        var H0 = 60 * gain;
+        var H1 = 112 * gain; 
 
         /**
          * スプライト（円形のオブジェクト）を作成するクラス
@@ -128,38 +144,53 @@
             // スプライトの初期化（画面の左上にスプライトを設置）
             var sprite_red  = new Sprite(0, 0, 50, 'red',  degreeToRadian(0));
             var sprite_blue = new Sprite(0, 0, 50, 'blue', degreeToRadian(180));
-            // logo = new createjs.Bitmap("images/logo.png");
 
             // スプライトをステージ上に追加
-            // stage.addChild(logo);
             stage.addChild(sprite_red);
             stage.addChild(sprite_blue);
 
-            // var g = new createjs.Graphics();
-            // g.beginStroke("white");
-            // g.moveTo(0,10);
-            // g.lineTo(100,10);
-            // g.endStroke();
-            // var gg=new createjs.Shape(g);
-            // stage.addChild(gg);
 
             // スプライトを配列に格納
             sprites = new Array();
             sprites.push(sprite_red);
             sprites.push(sprite_blue);
 
-            // logo = new createjs.Graphics();
-            //logo.beginLinearGradientFill(["#ffff00", "#00ffff"], [0, 1], 0, 0, 0, 320);
-            // logo.drawRect(0, 10, 200, 320);
-            // logo.beginFill("DarkRed"); // 赤色で描画するように設定
-            // logo.moveTo(0, 0); // (0,0)座標から描き始める
-            // logo.lineTo(100, 0); // (100,0)座標まで辺を描く
-            // logo.lineTo(0, 100); // (0,100)座標まで辺を描く
-            // logo.lineTo(0, 0); // (0,0)座標まで辺を描く
+            
+            // logo1.drawRect(0, 10, 200, 320);
 
-            // shapi = new createjs.Shape(logo);
-            // stage.addChild(shapi);
+            logo1 = new createjs.Graphics();
+            // logo1.beginFill("DarkRed"); // 赤色で描画するように設定
+            logo1.beginLinearGradientFill(["#ffff00", "#00ffff"], [0, 1], 0, 0, 0, 320);
+            logo1.moveTo(x_offset, y_offset); // point 1
+            logo1.lineTo(x_offset + W0, y_offset + H0); // point 2
+            logo1.lineTo(x_offset - W0, y_offset + H0); // point 3
+            logo1.lineTo(x_offset, y_offset); // point 1
 
+            // logo1.beginFill("yellow");
+            x_offset += W1;
+            logo1.moveTo(x_offset, y_offset); // point 4
+            logo1.lineTo(x_offset + W2, y_offset); // point 5
+            logo1.lineTo(x_offset + W2 + (H1 / H0) * W0, y_offset + H1); // point 6
+            logo1.lineTo(x_offset + (H1 / H0) * W0, y_offset + H1); // point 7
+            logo1.lineTo(x_offset, y_offset); // point 4
+
+            // logo1.beginFill("white");
+            x_offset += (W2 + W3);
+            logo1.moveTo(x_offset, y_offset); // point 8
+            logo1.lineTo(x_offset + W4, y_offset); // point 9
+            logo1.lineTo(x_offset + W4 / 2, y_offset + (W4 * H0) / 2 / W0); // point 10
+            logo1.lineTo(x_offset, y_offset); // point 8
+
+            // logo1.beginFill("purple");
+            x_offset += (W4 + W5);
+            logo1.moveTo(x_offset, y_offset); // point 8
+            logo1.lineTo(x_offset - W4 /2, y_offset + (W4 * H0) / 2 / W0); // point 9
+            logo1.lineTo(x_offset + W4 / 2, y_offset + (W4 * H0) / 2 / W0); // point 10
+            logo1.lineTo(x_offset, y_offset); // point 8
+
+
+            shapi = new createjs.Shape(logo1);
+            stage.addChild(shapi);
 
             // フレームカウントを初期化
             frameCount = 0;
@@ -186,17 +217,25 @@
                 sprite.move(x, y, r, radian);
             }
 
-            // logo.rotation += 2;
-            // logo.regX +=1;
-            // logo.visible = true;
+            // logo1.rotation += 2;
+            // logo1.regX +=1;
+            // logo1.visible = true;
             // if (Math.floor(Math.random()*102)%101==0){
-            //   logo.visible = false;
+            //   logo1.visible = false;
             // }
+
+            // shapi.regX = x_offset;
+            // shapi.regY = y_offset;
+            // shapi.rotation += 1;
+            // shapi.y += 1;
             // shapi.x += 1;
             // shapi.y += 1;
 
+
+
             // ステージ上のオブジェクトをcanvasに反映
             stage.update();
+
 
             // フレームカウントを毎フレーム増加
             frameCount++;

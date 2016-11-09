@@ -9,6 +9,15 @@ canvas {
   height: auto;
 	}
 
+
+.event{
+	font-family: 'Ultra', serif;
+	font-size: 72px;
+	font-weight: normal;
+	text-shadow: -1px 1px 0 rgba(255,255,255,1);
+	}
+
+
 .date{
 	font-family: 'Ultra', serif;
 	font-size: 72px;
