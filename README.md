@@ -54,10 +54,18 @@ aws s3 cp index.html s3://xn--wdk8ac7a.club/
 
 ### OPG画像
 
-OGP画像をog:imageで指定する
+#### OGP画像をog:imageで指定する
 
 http://ogimage.tsmallfield.com/
 
-OGP画像を確認する
+https://ferret-plus.com/610
+
+[OGPデバッガ](https://developers.facebook.com/tools/debug/sharing/)
+
+#### OGP画像を確認する
 
 http://seo-scene.com/ogp-image/
+
+1200 x 630 px 以上推奨
+最低でも 600 x 315 px、また大きければ大きいほど良いため 1200 x 630 px 以上の画像サイズが推奨されています。画像がクリッピングされるのを防ぐため、縦横比をなるべく1.91:1に近づけるようにしましょう。
+
