@@ -26,7 +26,7 @@ canvas {
 
 .date{
 	font-family: 'Ultra', serif;
-	font-size: 48px;
+	font-size: 8vw;
 	font-weight: normal;
 	text-shadow: -1px 1px 0 rgba(255,255,255,1);
 	}
@@ -44,7 +44,7 @@ canvas {
 
 .club{
 	font-family: 'Ultra', serif;
-	font-size: 48px;
+	font-size: 8vw;
 	/*font-size: 8vw;*/
 	font-weight: normal;
 	text-shadow: -1px 1px 0 rgba(255,255,255,1);
