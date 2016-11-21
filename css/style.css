@@ -44,7 +44,7 @@ canvas {
 
 .club{
 	font-family: 'Ultra', serif;
-	font-size: 8vw;
+	font-size: 6vw;
 	/*font-size: 8vw;*/
 	font-weight: normal;
 	text-shadow: -1px 1px 0 rgba(255,255,255,1);
@@ -53,7 +53,7 @@ canvas {
 .spguest{
 	font-family: 'Ultra', serif;
 	/*font-size: 24px;*/
-	font-size: 8vw;
+	font-size: 10vw;
 	font-weight: normal;
 	text-shadow: -1px 1px 0 rgba(255,255,255,1);
 	}
@@ -61,7 +61,7 @@ canvas {
 .guest{
 	font-family: 'Ultra', serif;
 	/*font-size: 24px;*/
-	font-size: 7vw;
+	font-size: 8vw;
 	font-weight: normal;
 	text-shadow: -1px 1px 0 rgba(255,255,255,1);
 	}
